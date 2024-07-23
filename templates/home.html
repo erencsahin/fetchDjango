@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Results for "{{ query }}"</h1>
+    <p>Total Images: {{ total_images }}</p>
+    <ul>
+        {% for image in images %}
+            <li>
+                <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 200px;">
+                <p>{{ image.title }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
