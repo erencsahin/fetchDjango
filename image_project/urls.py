@@ -15,11 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from views import upload_data_to_blob
 
 from images import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
+    path('home/', views.home, name='home'),
+    path('',views.login_view,name="login"),
     path('fetchdata/<str:query>/', views.fetch_images, name='fetch_images'),
+    path('show-images/',views.show_images,name='show_images'),
+    path('upload-api-data/',upload_data_to_blob,name='upload_api_data'),
 ]

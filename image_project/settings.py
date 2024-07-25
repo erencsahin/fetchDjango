@@ -28,6 +28,16 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+AZURE_ACCOUNT_NAME=['myaccount']
+AZURE_ACCOUNT_KEY=['00000000']
+AZURE_CONTAINER_NAME=['images']
+AZURE_CONNECTION_STRING_DEV = 'DefaultEndpointsProtocol=https;AccountName=wextimagedb;AccountKey=QGAOPPtvDv+iLd6v2hiw7ph8EPRFAiLOSm5cNydc2bBHRSE+m7eDrtM2F2K1paVLFTxVXrTRtrW3+ASthbTczA==;EndpointSuffix=core.windows.net'
+AZURE_CONNECTION_STRING_PROD = 'DefaultEndpointsProtocol=https;AccountName=wextimagedb;AccountKey=QGAOPPtvDv+iLd6v2hiw7ph8EPRFAiLOSm5cNydc2bBHRSE+m7eDrtM2F2K1paVLFTxVXrTRtrW3+ASthbTczA==;EndpointSuffix=core.windows.net'
+
+
+
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -83,7 +93,8 @@ DATABASES = {
         'CLIENT': {
             'host': 'localhost',
             'port': 27017,
-        }
+        },
+        'collection':'images_image'
     }
 }
 
