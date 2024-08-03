@@ -6,7 +6,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-!e^tgh$z*lwjf*#kh$d$u!&e8c-b*i-8#*1!=068f3$gs4+()n'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.5.101', 'localhost','http://localhost:3000',
+    'http://192.168.5.100','http://192.168.5.100:3000','https://127.0.0.1']
 
 AZURE_ACCOUNT_NAME = 'myaccount'
 AZURE_ACCOUNT_KEY = '00000000'
@@ -15,6 +16,7 @@ AZURE_CONNECTION_STRING_DEV = 'DefaultEndpointsProtocol=https;AccountName=wextim
 AZURE_CONNECTION_STRING_PROD = 'DefaultEndpointsProtocol=https;AccountName=wextimagedb;AccountKey=QGAOPPtvDv+iLd6v2hiw7ph8EPRFAiLOSm5cNydc2bBHRSE+m7eDrtM2F2K1paVLFTxVXrTRtrW3+ASthbTczA==;EndpointSuffix=core.windows.net'
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -25,14 +27,21 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS=[
+    "http://localhost:3000",
+    "http://192.168.5.103:3000"
+]
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'image_project.urls'
 
